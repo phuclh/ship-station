@@ -4,6 +4,7 @@
 namespace MichaelB\ShipStation;
 
 use GuzzleHttp\Client;
+use MichaelB\ShipStation\Endpoints\Accounts;
 use MichaelB\ShipStation\Endpoints\Carriers;
 use MichaelB\ShipStation\Endpoints\Customers;
 use MichaelB\ShipStation\Endpoints\Orders;
@@ -13,7 +14,6 @@ use MichaelB\ShipStation\Endpoints\Stores;
 use MichaelB\ShipStation\Endpoints\Users;
 use MichaelB\ShipStation\Endpoints\Warehouses;
 use MichaelB\ShipStation\Endpoints\Webhooks;
-use MichaelB\ShipStation\Models\Warehouse;
 
 class ShipStationApi Extends Client
 {
@@ -113,6 +113,10 @@ class ShipStationApi Extends Client
     public function getOrdersService()
     {
         return new Orders($this);
+    }
+
+    public function getAccountsService(){
+        return new Accounts($this);
     }
 
     /**
